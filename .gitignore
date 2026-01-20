@@ -1,14 +1,22 @@
 # Python virtual environment
 venv/
-
-# Environment variables
-.env
+env/
 
 # Python cache
 __pycache__/
 *.pyc
 
-# OS filesgit init
+# Environment variables
+.env
 
+# SQLite database
+*.db
+
+# Node / Frontend
+node_modules/
+dist/
+
+# OS / Editor
 .DS_Store
 Thumbs.db
+.vscode/
