@@ -3,7 +3,7 @@ import axios from "axios";
 import { Film, LogOut, Sparkles, Clock } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 interface Movie {
   title: string;
