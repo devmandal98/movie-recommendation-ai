@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from './contexts/AuthContext';
 import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
-import MainLanding from './components/MainLanding'; 
+import MainLanding from './components/mainlanding'; 
 
 function App() {
   const { token, loading } = useAuth();
