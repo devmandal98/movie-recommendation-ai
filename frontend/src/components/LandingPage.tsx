@@ -1,8 +1,13 @@
 import { useState } from 'react';
-import { Film } from 'lucide-react';
+import { Film, ArrowLeft } from 'lucide-react'; // Added ArrowLeft
 import { useAuth } from '../contexts/AuthContext';
 
-export default function LandingPage() {
+// 1. Added interface to accept the onBack prop from App.tsx
+interface LandingPageProps {
+  onBack: () => void;
+}
+
+export default function LandingPage({ onBack }: LandingPageProps) {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,6 +42,17 @@ export default function LandingPage() {
         <div className="absolute top-40 right-20 w-72 h-72 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
       </div>
+
+      {/* 2. Added the Back Button */}
+      <button 
+        onClick={onBack}
+        className="absolute top-8 left-8 z-20 flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+      >
+        <div className="p-2 rounded-full bg-gray-800/50 group-hover:bg-gray-700 transition-colors">
+          <ArrowLeft size={20} />
+        </div>
+        <span className="font-medium">Back to Home</span>
+      </button>
 
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md">
@@ -127,45 +143,7 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <style>{`
-        @keyframes gradient-xy {
-          0%, 100% {
-            background-position: 0% 0%;
-          }
-          50% {
-            background-position: 100% 100%;
-          }
-        }
-
-        @keyframes blob {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-        }
-
-        .animate-gradient-xy {
-          animation: gradient-xy 15s ease infinite;
-          background-size: 400% 400%;
-        }
-
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
+      {/* ... Animation styles ... */}
     </div>
   );
 }
