@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from backend.app.database import SessionLocal
-from backend.models.recommendation import Recommendation
-from backend.app.services.gemini import get_movie_recommendations
-from backend.app.routes.auth import get_current_user
+from app.database import SessionLocal
+from models.recommendation import Recommendation
+from app.services.gemini import get_movie_recommendations
+from app.routes.auth import get_current_user
 import json
 
 router = APIRouter(prefix="/recommend", tags=["Recommendations"])

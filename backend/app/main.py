@@ -6,15 +6,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Database
-from backend.app.database import Base, engine
+from app.database import Base, engine
 
 # Models (important for table creation)
-from backend.models.user import User
-from backend.models.recommendation import Recommendation
+from models.user import User
+from models.recommendation import Recommendation
 
 # Routers
-from backend.app.routes.auth import router as auth_router
-from backend.app.routes.recommend import router as recommend_router
+from app.routes.auth import router as auth_router
+from app.routes.recommend import router as recommend_router
 
 app = FastAPI(title="Movie Recommendation API")
 

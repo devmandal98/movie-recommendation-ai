@@ -3,13 +3,13 @@ from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 from fastapi.security import OAuth2PasswordRequestForm
-from backend.app.auth.jwt import SECRET_KEY, ALGORITHM
+from app.auth.jwt import SECRET_KEY, ALGORITHM
 
 
-from backend.app.database import SessionLocal
-from backend.models.user import User
-from backend.app.auth.security import hash_password, verify_password
-from backend.app.auth.jwt import create_access_token
+from app.database import SessionLocal
+from models.user import User
+from app.auth.security import hash_password, verify_password
+from app.auth.jwt import create_access_token
 import os
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
